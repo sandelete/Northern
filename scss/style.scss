@@ -33,6 +33,15 @@ $color-dark-grey:#7c7c7c;
     font-size: 22px;
 }
 
+@mixin h1 {
+    font-family: 'Circular Medium';
+    font-size: 85px;
+    line-height: 90px;
+    padding: 0 145px;
+    color: $color-white;
+    letter-spacing: -2.1px;
+}
+
 @mixin h2 {
     font-family: 'Circular Book';
     font-size: 40px;
@@ -79,6 +88,10 @@ $color-dark-grey:#7c7c7c;
 .section-inner {
     width: 92.6%;
     margin: 0 auto;
+}
+
+h1 {
+    font-size:100%;font-weight:normal;
 }
 
 h2 {
@@ -197,9 +210,100 @@ a {
     padding-bottom: 44px;
     background-color: $color-grey;
 
-    img {
+    .swiper-container {
         width: 100%;
 
+        .swiper-wrapper {
+
+            .swiper-slide {
+
+                .image {
+                    padding: 0 0 51.12% 0;
+                    position: relative;
+
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center center;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    .content {
+                        position: absolute;
+                        text-align: center;
+                        width: 100%;
+                        top: 50%;
+                        transform: translate(0,-50%);
+
+                        h1 {
+                            @include h1;
+                        }
+
+                        .subtitle {
+                            text-align: center;
+                            padding: 0 0 11px;
+                            margin: 43px 0 39px;
+                            transform: scaleY(0.9);
+
+
+                            .subtitle-link {
+                                @include subtitle;
+                                color: $color-white;
+                                line-height: 20px;
+                                display: inline-block;
+                                padding-bottom: 15px;
+                                position: relative;
+
+                                &::after {
+                                    position: absolute;
+                                    bottom: 0px;
+                                    left: 0;
+                                    display: block;
+                                    content: "";
+                                    height: 1px;
+                                    width: 100%;
+                                    background-color: $color-white;
+                                    ;
+                                    transition: width .4s ease-in-out;
+                                }
+
+                                &:hover:after,
+                                &:focus:after {
+                                    width: 0%;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            img {
+                width: 65px;
+                height: 65px;
+            }
+        }
+
+        .swiper-button-prev {
+            margin-left: 50px;   
+        }
+
+        .swiper-button-next {
+            margin-right: 50px;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            display: none;
+        }
     }
 }
 
@@ -212,7 +316,7 @@ a {
 
     .item-wrapper {
         display: flex;
-        
+
 
         .item-left {
             width: 33.33%;
@@ -371,7 +475,7 @@ a {
         .image {
             padding: 0 0 140% 0;
             position: relative;
-            
+
             img {
                 width: 100%;
                 height: 100%;
@@ -559,7 +663,7 @@ a {
                 width: 33.33%;
 
                 .block {
-                    
+
                     h3 {
                         margin: 19px 0 0;
                     }
