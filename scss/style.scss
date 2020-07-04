@@ -16,7 +16,6 @@
     src: url('/fonts/austin/AustinCyr-Roman.ttf');
 }
 
-
 // --- / Fonts ---
 
 // --- Variables ---
@@ -37,17 +36,18 @@ $color-dark-grey:#7c7c7c;
     font-family: 'Circular Medium';
     font-size: 85px;
     line-height: 90px;
-    padding: 0 145px;
     color: $color-white;
     letter-spacing: -2.1px;
+    font-weight: normal;
 }
 
 @mixin h2 {
-    font-family: 'Circular Book';
+    font-family: 'Circular Medium';
     font-size: 40px;
     line-height: 43px;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
     color: $color-black;
+    font-weight: 500;
 }
 
 @mixin h3 {
@@ -59,7 +59,7 @@ $color-dark-grey:#7c7c7c;
 }
 
 @mixin subtitle {
-    font-family: 'Austin', sans-serif;
+    font-family: 'Austin';
     font-size: 24px;
     line-height: 28px;
 }
@@ -90,18 +90,6 @@ $color-dark-grey:#7c7c7c;
     margin: 0 auto;
 }
 
-h1 {
-    font-size:100%;font-weight:normal;
-}
-
-h2 {
-    @include h2;
-}
-
-h3 {
-    @include h3;
-}
-
 a {
     text-decoration: none;
 }
@@ -125,9 +113,21 @@ a {
         a {
             text-decoration: none;
             color: $color-black;
+            opacity: 1;
+
+            &:hover,
+            &:focus {
+                opacity: 0.6;
+                transition: opacity .4s ease-in-out;
+            }
+
+            &:not(hover) {
+                opacity: 1;
+                transition: opacity .4s ease-in-out;
+            }
 
             img {
-                margin-right: 5px;
+                margin-right: 2px;
             }
         }
 
@@ -141,27 +141,36 @@ a {
                 line-height: 70px;
             }
 
+            select {
+                margin-left: 20px;
+                border: 1px solid $color-black;
+                padding: 0 20px;
+                font-size: 15px;
+                line-height: 15px;
+                -webkit-appearance: none;
+                height: 40px;
+                cursor: pointer;
+
+
+                &:hover {
+                    opacity: 0.5;
+                    transition: opacity .4s ease-in-out;
+                }
+
+                &:not(hover) {
+                    opacity: 1;
+                    transition: opacity .4s ease-in-out;
+                }
+            }
         }
 
-        select {
-            margin-left: 20px;
-            border: 1px solid;
-            padding: 0 20px;
-            font-size: 15px;
-            line-height: 15px;
-            -webkit-appearance: none;
-            height: 40px;
-        }
-
-        .logo {
+        logo {
             width: 300px;
             margin-top: 30px;
             margin-bottom: 0px;
             align-self: center;
             margin-left: 10px;
-
         }
-
     }
 
     &__category-nav {
@@ -169,7 +178,7 @@ a {
         justify-content: center;
         list-style: none;
         padding: 0;
-        margin-bottom: 40px;
+        margin-bottom: 38px;
         margin-top: 0;
 
         li+li {
@@ -182,6 +191,18 @@ a {
             display: inline-block;
             padding-bottom: 6px;
             position: relative;
+            opacity: 1;
+
+            &:hover,
+            &:focus {
+                opacity: 0.6;
+                transition: opacity .4s ease-in-out;
+            }
+
+            &:not(hover) {
+                opacity: 1;
+                transition: opacity .4s ease-in-out;
+            }
 
             &::after {
                 position: absolute;
@@ -202,7 +223,6 @@ a {
         }
     }
 }
-
 // --- / header ---
 
 // ---  swiper ---
@@ -221,7 +241,6 @@ a {
                     padding: 0 0 51.12% 0;
                     position: relative;
 
-
                     img {
                         width: 100%;
                         height: 100%;
@@ -237,10 +256,11 @@ a {
                         text-align: center;
                         width: 100%;
                         top: 50%;
-                        transform: translate(0,-50%);
+                        transform: translate(0, -50%);
 
                         h1 {
                             @include h1;
+                            padding: 0 145px;
                         }
 
                         .subtitle {
@@ -248,7 +268,6 @@ a {
                             padding: 0 0 11px;
                             margin: 43px 0 39px;
                             transform: scaleY(0.9);
-
 
                             .subtitle-link {
                                 @include subtitle;
@@ -267,7 +286,6 @@ a {
                                     height: 1px;
                                     width: 100%;
                                     background-color: $color-white;
-                                    ;
                                     transition: width .4s ease-in-out;
                                 }
 
@@ -293,7 +311,7 @@ a {
         }
 
         .swiper-button-prev {
-            margin-left: 50px;   
+            margin-left: 50px;
         }
 
         .swiper-button-next {
@@ -316,7 +334,6 @@ a {
 
     .item-wrapper {
         display: flex;
-
 
         .item-left {
             width: 33.33%;
@@ -404,6 +421,10 @@ a {
         .title {
             text-align: center;
             margin: 0 0 63px;
+
+            h2 {
+                @include h2;
+            }
         }
     }
 }
@@ -423,6 +444,7 @@ a {
 
 
         h2 {
+            @include h2;
             padding: 100px 0 0;
             margin: 0 0 13px;
         }
@@ -452,6 +474,12 @@ a {
             &:focus:after {
                 width: 0%;
             }
+        }
+
+        p {
+            font-family: 'Austin';
+            font-size: 24px;
+            line-height: 28px;
         }
     }
 }
@@ -547,6 +575,9 @@ a {
             text-align: center;
             margin: 0 0 63px;
 
+            h2 {
+                @include h2;
+            }
         }
     }
 }
@@ -565,6 +596,7 @@ a {
         text-align: center;
 
         h2 {
+            @include h2;
             flex-basis: 33.33%;
             margin: 0 22px 0 0;
         }
@@ -607,6 +639,7 @@ a {
         margin: 0 0 70px;
 
         h2 {
+            @include h2;
             margin: 52px 0 92px;
         }
 
@@ -626,7 +659,6 @@ a {
                 img {
                     width: 100%;
                     object-fit: cover;
-
                 }
 
                 &:hover {
@@ -653,7 +685,6 @@ a {
 
             .blocks+.blocks {
                 margin-left: 44px;
-
             }
 
             .blocks {
@@ -665,6 +696,7 @@ a {
                 .block {
 
                     h3 {
+                        @include h3;
                         margin: 19px 0 0;
                     }
 
@@ -690,6 +722,7 @@ a {
 
                 .block {
                     h3 {
+                        @include h3;
                         margin: 19px 0 0;
                     }
 

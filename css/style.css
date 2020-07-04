@@ -322,24 +322,6 @@ template {
   width: 92.6%;
   margin: 0 auto; }
 
-h1 {
-  font-size: 100%;
-  font-weight: normal; }
-
-h2 {
-  font-family: 'Circular Book';
-  font-size: 40px;
-  line-height: 43px;
-  letter-spacing: 1px;
-  color: #000000; }
-
-h3 {
-  font-family: 'Circular Book';
-  font-size: 19px;
-  line-height: 25px;
-  color: #7c7c7c;
-  font-weight: 500; }
-
 a {
   text-decoration: none; }
 
@@ -357,34 +339,48 @@ a {
       line-height: 70px; }
     .section-header__nav a {
       text-decoration: none;
-      color: #000000; }
+      color: #000000;
+      opacity: 1; }
+      .section-header__nav a:hover, .section-header__nav a:focus {
+        opacity: 0.6;
+        transition: opacity .4s ease-in-out; }
+      .section-header__nav a:not(hover) {
+        opacity: 1;
+        transition: opacity .4s ease-in-out; }
       .section-header__nav a img {
-        margin-right: 5px; }
+        margin-right: 2px; }
     .section-header__nav a + a {
       margin-left: 20px; }
     .section-header__nav .nav-right span {
       font-size: 18px;
       line-height: 70px; }
-    .section-header__nav select {
+    .section-header__nav .nav-right select {
       margin-left: 20px;
-      border: 1px solid;
+      border: 1px solid #000000;
       padding: 0 20px;
       font-size: 15px;
       line-height: 15px;
       -webkit-appearance: none;
-      height: 40px; }
-    .section-header__nav .logo {
-      width: 300px;
-      margin-top: 30px;
-      margin-bottom: 0px;
-      align-self: center;
-      margin-left: 10px; }
+      height: 40px;
+      cursor: pointer; }
+      .section-header__nav .nav-right select:hover {
+        opacity: 0.5;
+        transition: opacity .4s ease-in-out; }
+      .section-header__nav .nav-right select:not(hover) {
+        opacity: 1;
+        transition: opacity .4s ease-in-out; }
+  .section-header .logo {
+    width: 300px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    align-self: center;
+    margin-left: 10px; }
   .section-header__category-nav {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
-    margin-bottom: 40px;
+    margin-bottom: 38px;
     margin-top: 0; }
     .section-header__category-nav li + li {
       margin-left: 50px; }
@@ -393,7 +389,14 @@ a {
       line-height: 20px;
       display: inline-block;
       padding-bottom: 6px;
-      position: relative; }
+      position: relative;
+      opacity: 1; }
+      .section-header__category-nav a:hover, .section-header__category-nav a:focus {
+        opacity: 0.6;
+        transition: opacity .4s ease-in-out; }
+      .section-header__category-nav a:not(hover) {
+        opacity: 1;
+        transition: opacity .4s ease-in-out; }
       .section-header__category-nav a::after {
         position: absolute;
         bottom: 0px;
@@ -433,16 +436,17 @@ a {
           font-family: 'Circular Medium';
           font-size: 85px;
           line-height: 90px;
-          padding: 0 145px;
           color: #ffffff;
-          letter-spacing: -2.1px; }
+          letter-spacing: -2.1px;
+          font-weight: normal;
+          padding: 0 145px; }
         .section-swiper .swiper-container .swiper-wrapper .swiper-slide .image .content .subtitle {
           text-align: center;
           padding: 0 0 11px;
           margin: 43px 0 39px;
           transform: scaleY(0.9); }
           .section-swiper .swiper-container .swiper-wrapper .swiper-slide .image .content .subtitle .subtitle-link {
-            font-family: 'Austin', sans-serif;
+            font-family: 'Austin';
             font-size: 24px;
             line-height: 28px;
             color: #ffffff;
@@ -525,7 +529,7 @@ a {
       transform: scaleY(0.9);
       position: relative; }
       .section-news .item-wrapper .subtitle .subtitle-link {
-        font-family: 'Austin', sans-serif;
+        font-family: 'Austin';
         font-size: 24px;
         line-height: 28px;
         color: #000000;
@@ -548,6 +552,13 @@ a {
     .section-news .item-wrapper .title {
       text-align: center;
       margin: 0 0 63px; }
+      .section-news .item-wrapper .title h2 {
+        font-family: 'Circular Medium';
+        font-size: 40px;
+        line-height: 43px;
+        letter-spacing: -1px;
+        color: #000000;
+        font-weight: 500; }
 
 .section-promo {
   margin-bottom: 70px;
@@ -558,10 +569,16 @@ a {
     height: 363px;
     display: block; }
     .section-promo .wrapper h2 {
+      font-family: 'Circular Medium';
+      font-size: 40px;
+      line-height: 43px;
+      letter-spacing: -1px;
+      color: #000000;
+      font-weight: 500;
       padding: 100px 0 0;
       margin: 0 0 13px; }
     .section-promo .wrapper .subtitle-link {
-      font-family: 'Austin', sans-serif;
+      font-family: 'Austin';
       font-size: 24px;
       line-height: 28px;
       color: #000000;
@@ -582,6 +599,10 @@ a {
         transition: width .4s ease-in-out; }
       .section-promo .wrapper .subtitle-link:hover:after, .section-promo .wrapper .subtitle-link:focus:after {
         width: 0%; }
+    .section-promo .wrapper p {
+      font-family: 'Austin';
+      font-size: 24px;
+      line-height: 28px; }
 
 .section-featured .item-wrapper {
   display: flex; }
@@ -627,7 +648,7 @@ a {
     margin: 43px 0 39px;
     transform: scaleY(0.9); }
     .section-featured .item-wrapper .subtitle .subtitle-link {
-      font-family: 'Austin', sans-serif;
+      font-family: 'Austin';
       font-size: 24px;
       line-height: 28px;
       color: #000000;
@@ -650,6 +671,13 @@ a {
   .section-featured .item-wrapper .title {
     text-align: center;
     margin: 0 0 63px; }
+    .section-featured .item-wrapper .title h2 {
+      font-family: 'Circular Medium';
+      font-size: 40px;
+      line-height: 43px;
+      letter-spacing: -1px;
+      color: #000000;
+      font-weight: 500; }
 
 .section-letter {
   background-color: #dcf3f7;
@@ -660,6 +688,12 @@ a {
     align-items: center;
     text-align: center; }
     .section-letter .letter-wrapper h2 {
+      font-family: 'Circular Medium';
+      font-size: 40px;
+      line-height: 43px;
+      letter-spacing: -1px;
+      color: #000000;
+      font-weight: 500;
       flex-basis: 33.33%;
       margin: 0 22px 0 0; }
     .section-letter .letter-wrapper p {
@@ -672,7 +706,7 @@ a {
       margin-left: 22px; }
       .section-letter .letter-wrapper .form input,
       .section-letter .letter-wrapper .form button {
-        font-family: 'Austin', sans-serif;
+        font-family: 'Austin';
         font-size: 24px;
         line-height: 28px;
         width: 100%;
@@ -688,6 +722,12 @@ a {
   text-align: center;
   margin: 0 0 70px; }
   .section-instagram .wrapper h2 {
+    font-family: 'Circular Medium';
+    font-size: 40px;
+    line-height: 43px;
+    letter-spacing: -1px;
+    color: #000000;
+    font-weight: 500;
     margin: 52px 0 92px; }
   .section-instagram .wrapper .images {
     display: flex;
@@ -723,6 +763,11 @@ a {
         justify-content: space-between;
         width: 33.33%; }
         .section-footer .wrapper .footer-top .blocks .block h3 {
+          font-family: 'Circular Book';
+          font-size: 19px;
+          line-height: 25px;
+          color: #7c7c7c;
+          font-weight: 500;
           margin: 19px 0 0; }
         .section-footer .wrapper .footer-top .blocks .block p {
           margin: 0 0 19px; }
@@ -736,6 +781,11 @@ a {
         width: 33.33%;
         margin-right: 44px; }
         .section-footer .wrapper .footer-top .blocks1 .block h3 {
+          font-family: 'Circular Book';
+          font-size: 19px;
+          line-height: 25px;
+          color: #7c7c7c;
+          font-weight: 500;
           margin: 19px 0 0; }
         .section-footer .wrapper .footer-top .blocks1 .block p {
           margin: 0 0 19px; }
