@@ -164,7 +164,7 @@ a {
             }
         }
 
-        logo {
+        .logo {
             width: 300px;
             margin-top: 30px;
             margin-bottom: 0px;
@@ -232,6 +232,7 @@ a {
 
     .swiper-container {
         width: 100%;
+        
 
         .swiper-wrapper {
 
@@ -424,6 +425,16 @@ a {
 
             h2 {
                 @include h2;
+
+                &:hover {
+                    color: $color-dark-grey;
+                    transition: color .4s ease-in-out;
+                }
+    
+                &:not(hover) {
+                    color: $color-black;
+                    transition: color .4s ease-in-out;
+                }
             }
         }
     }
@@ -447,6 +458,16 @@ a {
             @include h2;
             padding: 100px 0 0;
             margin: 0 0 13px;
+
+            &:hover {
+                color: $color-dark-grey;
+                transition: color .4s ease-in-out;
+            }
+
+            &:not(hover) {
+                color: $color-black;
+                transition: color .4s ease-in-out;
+            }
         }
 
         .subtitle-link {
@@ -577,6 +598,16 @@ a {
 
             h2 {
                 @include h2;
+
+                &:hover {
+                    color: $color-dark-grey;
+                    transition: color .4s ease-in-out;
+                }
+    
+                &:not(hover) {
+                    color: $color-black;
+                    transition: color .4s ease-in-out;
+                }
             }
         }
     }
@@ -599,6 +630,7 @@ a {
             @include h2;
             flex-basis: 33.33%;
             margin: 0 22px 0 0;
+            
         }
 
         p {
@@ -712,6 +744,16 @@ a {
 
                     a {
                         color: $color-white;
+
+                        &:hover {
+                            color: $color-dark-grey;
+                            transition: color .4s ease-in-out;
+                        }
+            
+                        &:not(hover) {
+                            color: $color-white;
+                            transition: color .4s ease-in-out;
+                        }
                     }
                 }
             }
@@ -732,6 +774,15 @@ a {
 
                     a {
                         color: $color-white;
+                        &:hover {
+                            color: $color-dark-grey;
+                            transition: color .4s ease-in-out;
+                        }
+            
+                        &:not(hover) {
+                            color: $color-white;
+                            transition: color .4s ease-in-out;
+                        }
                     }
                 }
             }
@@ -764,6 +815,16 @@ a {
                 height: 40px;
                 color: $color-white;
                 background-color: $color-black;
+
+                &:hover {
+                    background-color: $color-dark-grey;
+                    transition: color .4s ease-in-out;
+                }
+    
+                &:not(hover) {
+                    background-color: $color-black;
+                    transition: color .4s ease-in-out;
+                }
             }
         }
     }

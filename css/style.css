@@ -369,12 +369,12 @@ a {
       .section-header__nav .nav-right select:not(hover) {
         opacity: 1;
         transition: opacity .4s ease-in-out; }
-  .section-header .logo {
-    width: 300px;
-    margin-top: 30px;
-    margin-bottom: 0px;
-    align-self: center;
-    margin-left: 10px; }
+    .section-header__nav .logo {
+      width: 300px;
+      margin-top: 30px;
+      margin-bottom: 0px;
+      align-self: center;
+      margin-left: 10px; }
   .section-header__category-nav {
     display: flex;
     justify-content: center;
@@ -559,6 +559,12 @@ a {
         letter-spacing: -1px;
         color: #000000;
         font-weight: 500; }
+        .section-news .item-wrapper .title h2:hover {
+          color: #7c7c7c;
+          transition: color .4s ease-in-out; }
+        .section-news .item-wrapper .title h2:not(hover) {
+          color: #000000;
+          transition: color .4s ease-in-out; }
 
 .section-promo {
   margin-bottom: 70px;
@@ -577,6 +583,12 @@ a {
       font-weight: 500;
       padding: 100px 0 0;
       margin: 0 0 13px; }
+      .section-promo .wrapper h2:hover {
+        color: #7c7c7c;
+        transition: color .4s ease-in-out; }
+      .section-promo .wrapper h2:not(hover) {
+        color: #000000;
+        transition: color .4s ease-in-out; }
     .section-promo .wrapper .subtitle-link {
       font-family: 'Austin';
       font-size: 24px;
@@ -678,6 +690,12 @@ a {
       letter-spacing: -1px;
       color: #000000;
       font-weight: 500; }
+      .section-featured .item-wrapper .title h2:hover {
+        color: #7c7c7c;
+        transition: color .4s ease-in-out; }
+      .section-featured .item-wrapper .title h2:not(hover) {
+        color: #000000;
+        transition: color .4s ease-in-out; }
 
 .section-letter {
   background-color: #dcf3f7;
@@ -777,6 +795,12 @@ a {
           padding-left: 0; }
         .section-footer .wrapper .footer-top .blocks .block a {
           color: #ffffff; }
+          .section-footer .wrapper .footer-top .blocks .block a:hover {
+            color: #7c7c7c;
+            transition: color .4s ease-in-out; }
+          .section-footer .wrapper .footer-top .blocks .block a:not(hover) {
+            color: #ffffff;
+            transition: color .4s ease-in-out; }
       .section-footer .wrapper .footer-top .blocks1 {
         width: 33.33%;
         margin-right: 44px; }
@@ -791,6 +815,12 @@ a {
           margin: 0 0 19px; }
         .section-footer .wrapper .footer-top .blocks1 .block a {
           color: #ffffff; }
+          .section-footer .wrapper .footer-top .blocks1 .block a:hover {
+            color: #7c7c7c;
+            transition: color .4s ease-in-out; }
+          .section-footer .wrapper .footer-top .blocks1 .block a:not(hover) {
+            color: #ffffff;
+            transition: color .4s ease-in-out; }
     .section-footer .wrapper .footer-bottom {
       display: flex;
       justify-content: space-between; }
@@ -811,3 +841,9 @@ a {
         height: 40px;
         color: #ffffff;
         background-color: #000000; }
+        .section-footer .wrapper .footer-bottom select:hover {
+          background-color: #7c7c7c;
+          transition: color .4s ease-in-out; }
+        .section-footer .wrapper .footer-bottom select:not(hover) {
+          background-color: #000000;
+          transition: color .4s ease-in-out; }
