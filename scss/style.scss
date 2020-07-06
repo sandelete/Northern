@@ -24,6 +24,9 @@ $color-blue: #dcf3f7;
 $color-grey: #F1F3F2;
 $color-white: #ffffff;
 $color-dark-grey:#7c7c7c;
+
+$screen-md-min: 767px;
+$screen-lg: 1100px;
 // --- / Variables ---
 
 // --- Mixins ---
@@ -36,6 +39,15 @@ $color-dark-grey:#7c7c7c;
     font-family: 'Circular Medium';
     font-size: 85px;
     line-height: 90px;
+    color: $color-white;
+    letter-spacing: -2.1px;
+    font-weight: normal;
+}
+
+@mixin h1-md {
+    font-family: 'Circular Medium';
+    font-size: 70px;
+    line-height: 75px;
     color: $color-white;
     letter-spacing: -2.1px;
     font-weight: normal;
@@ -60,7 +72,7 @@ $color-dark-grey:#7c7c7c;
 
 @mixin subtitle {
     font-family: 'Austin';
-    font-size: 24px;
+    font-size: 22px;
     line-height: 28px;
 }
 
@@ -98,7 +110,7 @@ a {
 .section-header {
     @include circular-book;
 
-    &__nav {
+    .nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -151,7 +163,6 @@ a {
                 height: 40px;
                 cursor: pointer;
 
-
                 &:hover {
                     opacity: 0.5;
                     transition: opacity .4s ease-in-out;
@@ -173,7 +184,7 @@ a {
         }
     }
 
-    &__category-nav {
+    .category-nav {
         display: flex;
         justify-content: center;
         list-style: none;
@@ -229,15 +240,20 @@ a {
 .section-swiper {
     padding-bottom: 44px;
     background-color: $color-grey;
+    margin-top: 357px;
+    overflow: visible;
+
+    @media (max-width: $screen-lg) {
+        padding-bottom: 30px;
+    }
 
     .swiper-container {
+        display: inline-block;
+        margin-top: -320px;
         width: 100%;
-        
 
         .swiper-wrapper {
-
             .swiper-slide {
-
                 .image {
                     padding: 0 0 51.12% 0;
                     position: relative;
@@ -262,70 +278,76 @@ a {
                         h1 {
                             @include h1;
                             padding: 0 145px;
-                        }
+                            margin: 0 0 0 0;
 
-                        .subtitle {
-                            text-align: center;
-                            padding: 0 0 11px;
-                            margin: 43px 0 39px;
-                            transform: scaleY(0.9);
-
-                            .subtitle-link {
-                                @include subtitle;
-                                color: $color-white;
-                                line-height: 20px;
-                                display: inline-block;
-                                padding-bottom: 15px;
-                                position: relative;
-
-                                &::after {
-                                    position: absolute;
-                                    bottom: 0px;
-                                    left: 0;
-                                    display: block;
-                                    content: "";
-                                    height: 1px;
-                                    width: 100%;
-                                    background-color: $color-white;
-                                    transition: width .4s ease-in-out;
-                                }
-
-                                &:hover:after,
-                                &:focus:after {
-                                    width: 0%;
-                                }
+                            @media (max-width: $screen-lg) {
+                                @include h1-md;
                             }
                         }
+                    }
 
+                    .subtitle {
+                        text-align: center;
+                        padding: 0 0 11px;
+                        transform: scaleY(0.9);
+
+                        .subtitle-link {
+                            @include subtitle;
+                            color: $color-white;
+                            line-height: 20px;
+                            margin: 56px 0 0 0;
+                            display: inline-block;
+                            padding-bottom: 15px;
+                            position: relative;
+
+                            @media (max-width: $screen-lg) {
+                                margin: 37px 0 0 0;
+                            }
+
+                            &::after {
+                                position: absolute;
+                                bottom: 0px;
+                                left: 0;
+                                display: block;
+                                content: "";
+                                height: 1px;
+                                width: 100%;
+                                background-color: $color-white;
+                                transition: width .4s ease-in-out;
+                            }
+
+                            &:hover:after,
+                            &:focus:after {
+                                width: 0%;
+                            }
+                        }
                     }
                 }
-
             }
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            img {
-                width: 65px;
-                height: 65px;
-            }
-        }
-
-        .swiper-button-prev {
-            margin-left: 50px;
-        }
-
-        .swiper-button-next {
-            margin-right: 50px;
-        }
-
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            display: none;
         }
     }
-}
 
+    .swiper-button-prev,
+    .swiper-button-next {
+        img {
+            width: 65px;
+            height: 65px;
+        }
+    }
+
+    .swiper-button-prev {
+        margin-left: 50px;
+    }
+
+    .swiper-button-next {
+        margin-right: 50px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        display: none;
+    }
+}
 // ---  swiper ---
 
 // ---  news ---
@@ -333,22 +355,40 @@ a {
     background-color: $color-grey;
     margin-bottom: 70px;
 
+    @media (max-width: $screen-lg) {
+        margin-bottom: 30px;
+    }
+
     .item-wrapper {
         display: flex;
 
         .item-left {
             width: 33.33%;
             padding-right: 22px;
+
+            @media (max-width: $screen-lg) {
+                width: 50%;
+                padding-right: 15px;
+            }
         }
 
         .item-right {
             width: 66.66%;
             padding-left: 22px;
+
+            @media (max-width: $screen-lg) {
+                width: 50%;
+                padding-left: 15px;
+            }
         }
 
         .image {
             height: 500px;
             position: relative;
+
+            @media (max-width: $screen-lg) {
+                padding: 0 0 140% 0;
+            }
 
             img {
                 width: 100%;
@@ -430,7 +470,7 @@ a {
                     color: $color-dark-grey;
                     transition: color .4s ease-in-out;
                 }
-    
+
                 &:not(hover) {
                     color: $color-black;
                     transition: color .4s ease-in-out;
@@ -439,13 +479,16 @@ a {
         }
     }
 }
-
 // ---  / news ---
 
 // --- promo ---
 .section-promo {
     margin-bottom: 70px;
     text-align: center;
+
+    @media (max-width: $screen-lg) {
+        margin-bottom: 30px;
+    }
 
     .wrapper {
         background: url('../img/promo.jpg') no-repeat 50% 50%;
@@ -509,104 +552,103 @@ a {
 
 // --- featured ---
 .section-featured {
-
     .item-wrapper {
         display: flex;
 
         .item {
             width: 33.33%;
-        }
 
-        .item+.item {
-            margin-left: 44px;
-        }
-
-        .image {
-            padding: 0 0 140% 0;
-            position: relative;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center center;
-                position: absolute;
-                top: 0;
-                left: 0;
+            .item+.item {
+                margin-left: 44px;
             }
 
-            .hover-text {
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: rgba(220, 243, 247, 0.9);
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                transition: opacity, ease-out 0.4s;
-                cursor: pointer;
-
-                a {
-                    @include a-circular;
-                    display: block;
-                    padding-left: 43px;
-                    padding-top: 48px;
-                }
-            }
-
-            &:hover .hover-text {
-                opacity: 1;
-            }
-        }
-
-        .subtitle {
-            text-align: center;
-            padding: 0 0 11px;
-            margin: 43px 0 39px;
-            transform: scaleY(0.9);
-
-            .subtitle-link {
-                @include subtitle;
-                color: $color-black;
-                line-height: 20px;
-                display: inline-block;
-                padding-bottom: 10px;
+            .image {
+                padding: 0 0 140% 0;
                 position: relative;
 
-                &::after {
-                    position: absolute;
-                    bottom: 0px;
-                    left: 0;
-                    display: block;
-                    content: "";
-                    height: 1px;
+                img {
                     width: 100%;
-                    background-color: $color-black;
-                    transition: width .4s ease-in-out;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 }
 
-                &:hover:after,
-                &:focus:after {
-                    width: 0%;
+                .hover-text {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: rgba(220, 243, 247, 0.9);
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transition: opacity, ease-out 0.4s;
+                    cursor: pointer;
+
+                    a {
+                        @include a-circular;
+                        display: block;
+                        padding-left: 43px;
+                        padding-top: 48px;
+                    }
+                }
+
+                &:hover .hover-text {
+                    opacity: 1;
                 }
             }
-        }
 
-        .title {
-            text-align: center;
-            margin: 0 0 63px;
+            .subtitle {
+                text-align: center;
+                padding: 0 0 11px;
+                margin: 43px 0 39px;
+                transform: scaleY(0.9);
 
-            h2 {
-                @include h2;
-
-                &:hover {
-                    color: $color-dark-grey;
-                    transition: color .4s ease-in-out;
-                }
-    
-                &:not(hover) {
+                .subtitle-link {
+                    @include subtitle;
                     color: $color-black;
-                    transition: color .4s ease-in-out;
+                    line-height: 20px;
+                    display: inline-block;
+                    padding-bottom: 10px;
+                    position: relative;
+
+                    &::after {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0;
+                        display: block;
+                        content: "";
+                        height: 1px;
+                        width: 100%;
+                        background-color: $color-black;
+                        transition: width .4s ease-in-out;
+                    }
+
+                    &:hover:after,
+                    &:focus:after {
+                        width: 0%;
+                    }
+                }
+            }
+
+            .title {
+                text-align: center;
+                margin: 0 0 63px;
+
+                h2 {
+                    @include h2;
+
+                    &:hover {
+                        color: $color-dark-grey;
+                        transition: color .4s ease-in-out;
+                    }
+
+                    &:not(hover) {
+                        color: $color-black;
+                        transition: color .4s ease-in-out;
+                    }
                 }
             }
         }
@@ -630,7 +672,7 @@ a {
             @include h2;
             flex-basis: 33.33%;
             margin: 0 22px 0 0;
-            
+
         }
 
         p {
@@ -652,6 +694,20 @@ a {
                 background-color: $color-blue;
                 border: 1px solid black;
                 padding: 0 20px 0;
+            }
+
+            button {
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.5;
+                    transition: opacity .4s ease-in-out;
+                }
+
+                &:not(hover) {
+                    opacity: 1;
+                    transition: opacity .4s ease-in-out;
+                }
             }
 
             input {
@@ -749,7 +805,7 @@ a {
                             color: $color-dark-grey;
                             transition: color .4s ease-in-out;
                         }
-            
+
                         &:not(hover) {
                             color: $color-white;
                             transition: color .4s ease-in-out;
@@ -774,11 +830,12 @@ a {
 
                     a {
                         color: $color-white;
+
                         &:hover {
                             color: $color-dark-grey;
                             transition: color .4s ease-in-out;
                         }
-            
+
                         &:not(hover) {
                             color: $color-white;
                             transition: color .4s ease-in-out;
@@ -799,6 +856,16 @@ a {
 
             a {
                 color: #231f20;
+
+                &:hover {
+                    color: $color-white;
+                    transition: color .4s ease-in-out;
+                }
+
+                &:not(hover) {
+                    color: #231f20;
+                    transition: color .4s ease-in-out;
+                }
             }
 
             a+a {
@@ -820,7 +887,7 @@ a {
                     background-color: $color-dark-grey;
                     transition: color .4s ease-in-out;
                 }
-    
+
                 &:not(hover) {
                     background-color: $color-black;
                     transition: color .4s ease-in-out;
