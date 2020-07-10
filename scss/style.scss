@@ -25,7 +25,8 @@ $color-grey: #F1F3F2;
 $color-white: #ffffff;
 $color-dark-grey:#7c7c7c;
 
-$screen-md-min: 767px;
+$screen-phone: 470px;
+$screen-md: 767px;
 $screen-lg: 1100px;
 // --- / Variables ---
 
@@ -62,6 +63,15 @@ $screen-lg: 1100px;
     font-weight: 500;
 }
 
+@mixin h2-md {
+    font-family: 'Circular Medium';
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    color: $color-black;
+    font-weight: 500;
+}
+
 @mixin h3 {
     font-family: 'Circular Book';
     font-size: 19px;
@@ -70,10 +80,24 @@ $screen-lg: 1100px;
     font-weight: 500;
 }
 
+@mixin h3-lg {
+    font-family: 'Circular Book';
+    font-size: 17px;
+    line-height: 23px;
+    color: $color-dark-grey;
+    font-weight: 500;
+}
+
 @mixin subtitle {
     font-family: 'Austin';
     font-size: 22px;
     line-height: 28px;
+}
+
+@mixin subtitle-md {
+    font-family: 'Austin';
+    font-size: 15px;
+    line-height: 23px;
 }
 
 @mixin a-circular {
@@ -91,6 +115,14 @@ $screen-lg: 1100px;
     color: $color-white;
 }
 
+@mixin footer-style-md {
+    font-family: 'Circular Book';
+    font-size: 17px;
+    line-height: 23px;
+    color: $color-white;
+}
+
+
 // --- / Mixins ---
 
 * {
@@ -107,8 +139,19 @@ a {
 }
 
 // --- header ---
-.section-header {
+header {
     @include circular-book;
+
+    @media (max-width: $screen-lg) {
+        font-size: 17px;
+    }
+
+    .section-inner-header {
+        @media (min-width: $screen-lg) {
+            width: 92.6%;
+            margin: 0 auto;
+        }
+    }
 
     .nav {
         display: flex;
@@ -118,6 +161,11 @@ a {
         padding: 0;
         margin-bottom: 23px;
 
+        @media (max-width: $screen-lg) {
+            background-color: $color-black;
+            margin: 0 0 0 0;
+        }
+
         li {
             line-height: 70px;
         }
@@ -126,6 +174,14 @@ a {
             text-decoration: none;
             color: $color-black;
             opacity: 1;
+
+            @media (max-width: $screen-lg) {
+                color: $color-white;
+            }
+
+            @media (max-width: $screen-phone) {
+                font-size: 12px;
+            }
 
             &:hover,
             &:focus {
@@ -141,13 +197,33 @@ a {
             img {
                 margin-right: 2px;
             }
+
+            span {
+                @media (max-width: 320px) {
+                    display: none;
+                }
+            }
         }
 
         a+a {
             margin-left: 20px;
+
+            @media (max-width: $screen-phone) {
+                margin-left: 5px;
+            }
+        }
+
+        .nav-left {
+            @media (max-width: $screen-lg) {
+                padding-left: 19px;
+            }
         }
 
         .nav-right {
+            @media (max-width: $screen-lg) {
+                padding-right: 19px;
+            }
+
             span {
                 font-size: 18px;
                 line-height: 70px;
@@ -163,14 +239,35 @@ a {
                 height: 40px;
                 cursor: pointer;
 
+                @media (max-width: $screen-lg) {
+                    border: 1px solid $color-black;
+                    color: $color-white;
+                    background-color: $color-black;
+                }
+
+                @media (max-width: $screen-phone) {
+                    font-size: 12px;
+                    margin-left: 0;
+                }
+
                 &:hover {
                     opacity: 0.5;
                     transition: opacity .4s ease-in-out;
+
+                    @media (max-width: $screen-lg) {
+                        border: 1px solid $color-grey;
+                        transition: .3s ease-in-out;
+                    }
                 }
 
                 &:not(hover) {
                     opacity: 1;
-                    transition: opacity .4s ease-in-out;
+                    transition: opacity border .4s ease-in-out;
+
+                    @media (max-width: $screen-lg) {
+                        border: 1px solid $color-black;
+                        transition: .3s ease-in-out;
+                    }
                 }
             }
         }
@@ -181,6 +278,19 @@ a {
             margin-bottom: 0px;
             align-self: center;
             margin-left: 10px;
+
+            @media (max-width: $screen-lg) {
+                display: none;
+            }
+        }
+    }
+
+    .logo-main {
+        width: 200px;
+        margin: 28px auto;
+
+        @media (min-width: $screen-lg) {
+            display: none;
         }
     }
 
@@ -188,9 +298,12 @@ a {
         display: flex;
         justify-content: center;
         list-style: none;
-        padding: 0;
-        margin-bottom: 38px;
-        margin-top: 0;
+        padding: 0 0 0 0;
+        margin: 0 0 38px;
+
+        @media (max-width: $screen-lg) {
+            margin: 0 0 28px;
+        }
 
         li+li {
             margin-left: 50px;
@@ -203,6 +316,11 @@ a {
             padding-bottom: 6px;
             position: relative;
             opacity: 1;
+
+            @media (max-width: $screen-lg) {
+                font-size: 16px;
+                font-weight: 200;
+            }
 
             &:hover,
             &:focus {
@@ -233,29 +351,43 @@ a {
             }
         }
     }
+
+    .icon-black {
+        @media (max-width: $screen-lg) {
+            display: none;
+        }
+    }
+
+    .icon-white {
+        @media (min-width: $screen-lg) {
+            display: none;
+        }
+    }
 }
+
 // --- / header ---
 
 // ---  swiper ---
 .section-swiper {
-    padding-bottom: 44px;
-    background-color: $color-grey;
-    margin-top: 357px;
+    padding-bottom: 22px;
     overflow: visible;
 
     @media (max-width: $screen-lg) {
-        padding-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    @media (max-width: $screen-md) {
+        padding-bottom: 8px;
     }
 
     .swiper-container {
         display: inline-block;
-        margin-top: -320px;
         width: 100%;
 
         .swiper-wrapper {
             .swiper-slide {
                 .image {
-                    padding: 0 0 51.12% 0;
+                    padding: 0 0 55% 0;
                     position: relative;
 
                     img {
@@ -282,6 +414,14 @@ a {
 
                             @media (max-width: $screen-lg) {
                                 @include h1-md;
+                                padding: 0 115px;
+                            }
+
+                            @media (max-width: $screen-md) {
+                                padding: 0 65px;
+                                font-size: 22px;
+                                line-height: 27px;
+                                letter-spacing: -0.6px;
                             }
                         }
                     }
@@ -302,6 +442,15 @@ a {
 
                             @media (max-width: $screen-lg) {
                                 margin: 37px 0 0 0;
+                            }
+
+                            @media (max-width: $screen-md) {
+                                margin: 10px 0 0 0;
+                                padding-bottom: 4px;
+                            }
+
+                            @media (max-width: $screen-md) {
+                                @include subtitle-md;
                             }
 
                             &::after {
@@ -332,15 +481,28 @@ a {
         img {
             width: 65px;
             height: 65px;
+
+            @media (max-width: $screen-md) {
+                width: 30px;
+                height: 30px;
+            }
         }
     }
 
     .swiper-button-prev {
         margin-left: 50px;
+
+        @media (max-width: $screen-md) {
+            margin-left: 5px;
+        }
     }
 
     .swiper-button-next {
         margin-right: 50px;
+
+        @media (max-width: $screen-md) {
+            margin-right: 5px;
+        }
     }
 
     .swiper-button-prev::after,
@@ -348,15 +510,23 @@ a {
         display: none;
     }
 }
+
 // ---  swiper ---
 
 // ---  news ---
 .section-news {
     background-color: $color-grey;
+    padding-top: 24px;
     margin-bottom: 70px;
 
     @media (max-width: $screen-lg) {
-        margin-bottom: 30px;
+        padding-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    @media (max-width: $screen-md) {
+        padding-top: 16px;
+        margin-bottom: 17px;
     }
 
     .item-wrapper {
@@ -370,6 +540,10 @@ a {
                 width: 50%;
                 padding-right: 15px;
             }
+
+            @media (max-width: $screen-md) {
+                padding-right: 7px;
+            }
         }
 
         .item-right {
@@ -380,11 +554,18 @@ a {
                 width: 50%;
                 padding-left: 15px;
             }
+
+            @media (max-width: $screen-md) {
+                padding-left: 7px;
+            }
         }
 
         .image {
-            height: 500px;
             position: relative;
+
+            @media (min-width: $screen-lg) {
+                height: 500px;
+            }
 
             @media (max-width: $screen-lg) {
                 padding: 0 0 140% 0;
@@ -411,6 +592,10 @@ a {
                 transition: opacity, ease-out 0.4s;
                 cursor: pointer;
 
+                @media (max-width: $screen-md) {
+                    display: none;
+                }
+
                 a {
                     @include a-circular;
                     display: block;
@@ -432,6 +617,11 @@ a {
             transform: scaleY(0.9);
             position: relative;
 
+            @media (max-width: $screen-md) {
+                margin: 13px 0 13px;
+                padding: 0 0 0 0;
+            }
+
             .subtitle-link {
                 @include subtitle;
                 color: $color-black;
@@ -439,6 +629,11 @@ a {
                 display: inline-block;
                 padding-bottom: 10px;
                 position: relative;
+
+                @media (max-width: $screen-md) {
+                    @include subtitle-md;
+                    padding-bottom: 2px;
+                }
 
                 &::after {
                     position: absolute;
@@ -463,8 +658,17 @@ a {
             text-align: center;
             margin: 0 0 63px;
 
+            @media (max-width: $screen-md) {
+                margin: 0 0 15px;
+            }
+
             h2 {
                 @include h2;
+
+                @media (max-width: $screen-md) {
+                    @include h2-md;
+                    margin: 0 0 0 0;
+                }
 
                 &:hover {
                     color: $color-dark-grey;
@@ -479,6 +683,7 @@ a {
         }
     }
 }
+
 // ---  / news ---
 
 // --- promo ---
@@ -487,7 +692,11 @@ a {
     text-align: center;
 
     @media (max-width: $screen-lg) {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+    }
+
+    @media (max-width: $screen-md) {
+        margin-bottom: 17px;
     }
 
     .wrapper {
@@ -496,11 +705,29 @@ a {
         height: 363px;
         display: block;
 
+        @media (max-width: $screen-lg) {
+            height: 343px;
+        }
+
+        @media (max-width: $screen-md) {
+            height: 157px;
+        }
 
         h2 {
             @include h2;
             padding: 100px 0 0;
             margin: 0 0 13px;
+
+            @media (max-width: $screen-lg) {
+                padding: 80px 0 0;
+            }
+
+            @media (max-width: $screen-md) {
+                font-size: 22px;
+                line-height: 27px;
+                letter-spacing: -0.6px;
+                padding: 35px 0 0;
+            }
 
             &:hover {
                 color: $color-dark-grey;
@@ -521,6 +748,12 @@ a {
             padding-bottom: 11px;
             margin: 43px 0 85px;
             position: relative;
+
+            @media (max-width: $screen-md) {
+                @include subtitle-md;
+                margin: 0 0 28px;
+                padding-bottom: 2px;
+            }
 
             &::after {
                 position: absolute;
@@ -555,11 +788,25 @@ a {
     .item-wrapper {
         display: flex;
 
+        .hide {
+            @media (max-width: $screen-lg) {
+                display: none;
+            }
+        }
+
+        .item+.item {
+            margin-left: 30px;
+
+            @media (max-width: $screen-md) {
+                margin-left: 14px;
+            }
+        }
+
         .item {
             width: 33.33%;
 
-            .item+.item {
-                margin-left: 44px;
+            @media (max-width: $screen-lg) {
+                width: 50%;
             }
 
             .image {
@@ -587,6 +834,10 @@ a {
                     transition: opacity, ease-out 0.4s;
                     cursor: pointer;
 
+                    @media (max-width: $screen-md) {
+                        display: none;
+                    }
+
                     a {
                         @include a-circular;
                         display: block;
@@ -606,6 +857,11 @@ a {
                 margin: 43px 0 39px;
                 transform: scaleY(0.9);
 
+                @media (max-width: $screen-md) {
+                    margin: 13px 0 13px;
+                    padding: 0 0 0 0;
+                }
+
                 .subtitle-link {
                     @include subtitle;
                     color: $color-black;
@@ -613,6 +869,11 @@ a {
                     display: inline-block;
                     padding-bottom: 10px;
                     position: relative;
+
+                    @media (max-width: $screen-md) {
+                        @include subtitle-md;
+                        padding-bottom: 2px;
+                    }
 
                     &::after {
                         position: absolute;
@@ -637,8 +898,17 @@ a {
                 text-align: center;
                 margin: 0 0 63px;
 
+                @media (max-width: $screen-md) {
+                    margin: 0 0 15px;
+                }
+
                 h2 {
                     @include h2;
+
+                    @media (max-width: $screen-md) {
+                        @include h2-md;
+                        margin: 0 0 0 0;
+                    }
 
                     &:hover {
                         color: $color-dark-grey;
@@ -660,7 +930,11 @@ a {
 // ---  letter ---
 .section-letter {
     background-color: $color-blue;
-    margin-bottom: 44px;
+    margin-bottom: 30px;
+
+    @media (max-width: $screen-md) {
+        margin-top: 11px;
+    }
 
     .letter-wrapper {
         display: flex;
@@ -668,22 +942,63 @@ a {
         align-items: center;
         text-align: center;
 
+        @media (max-width: $screen-lg) {
+            flex-direction: column;
+            height: 389px;
+        }
+
+        @media (max-width: $screen-md) {
+            flex-direction: column;
+            height: 238px;
+        }
+
         h2 {
             @include h2;
             flex-basis: 33.33%;
             margin: 0 22px 0 0;
 
+            @media (max-width: $screen-lg) {
+                margin: 62px 0 28px;
+            }
+
+            @media (max-width: $screen-md) {
+                flex-basis: 33.33%;
+                font-size: 22px;
+                line-height: 27px;
+                letter-spacing: -0.6px;
+                margin: 25px 0 0;
+            }
         }
 
         p {
             @include circular-book;
             flex-basis: 33.33%;
             margin: 0 22px 0;
+
+            @media (max-width: $screen-lg) {
+                margin: 9px 0 22px;
+            }
+
+            @media (max-width: $screen-md) {
+                font-size: 16px;
+                line-height: 20px;
+                margin: 9px 0 10px;
+            }
         }
 
         .form {
             flex-basis: 33.33%;
             margin-left: 22px;
+
+            @media (max-width: $screen-lg) {
+                width: 100%;
+                margin: 0 0 62px;
+            }
+
+            @media (max-width: $screen-md) {
+                width: 100%;
+                margin: 0 0 35px;
+            }
 
             input,
             button {
@@ -694,6 +1009,12 @@ a {
                 background-color: $color-blue;
                 border: 1px solid black;
                 padding: 0 20px 0;
+
+                @media (max-width: $screen-md) {
+                    font-size: 16px;
+                    line-height: 0px;
+                    height: 50px;
+                }
             }
 
             button {
@@ -724,11 +1045,26 @@ a {
 
     .wrapper {
         text-align: center;
-        margin: 0 0 70px;
+        margin: 0 0 30px;
+
+        @media (max-width: $screen-md) {
+            margin: 0 0 17px;
+        }
 
         h2 {
             @include h2;
             margin: 52px 0 92px;
+
+            @media (max-width: $screen-lg) {
+                margin: 22px 0 62px;
+            }
+
+            @media (max-width: $screen-md) {
+                font-size: 22px;
+                line-height: 27px;
+                letter-spacing: -0.6px;
+                margin: 25px 0 0;
+            }
         }
 
         .images {
@@ -737,6 +1073,14 @@ a {
 
             .image+.image {
                 margin-left: 44px;
+
+                @media (max-width: $screen-lg) {
+                    margin-left: 30px;
+                }
+
+                @media (max-width: $screen-md) {
+                    margin-left: 14px;
+                }
             }
 
             .image {
@@ -760,19 +1104,92 @@ a {
 // --- / instagram ---
 
 // --- footer ---
-.section-footer {
+footer {
     background-color: $color-black;
     @include footer-style;
 
+    @media (max-width: $screen-md) {
+        @include footer-style-md;
+    }
+
     .wrapper {
         padding: 73px 0 40px;
+
+        @media (max-width: $screen-lg) {
+            padding: 23px 0 40px;
+        }
+
+        .button-up {
+            height: 70px;
+            width: 70px;
+            border: 1px solid $color-white;
+            float: right;
+            margin: 19px 0 0;
+            cursor: pointer;
+            overflow: hidden;
+            padding: 0 ;
+            font-size: 22px;
+
+            @media (max-width: $screen-md) {
+                font-size: 17px;
+                height: 50px;
+            width: 50px;
+            }
+
+            
+            .wrapper-b {
+                display: inline-block;
+                position: relative;
+                height: 70px;
+            width: 70px;
+                
+
+                span {
+                    position: absolute;
+                    top: 22px;
+                    left: 21px;
+
+                    @media (max-width: $screen-md) {
+                        top: 14px;
+                        left: 14px;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    width: 70px;
+                    top: 70px;
+
+                    @media (max-width: $screen-md) {
+                        width: 50px;
+                        top: 70px;
+                    }
+                }
+                
+                &:hover {
+                    transform: translateY(-70px);
+                    transition: transform .4s ease-in-out;
+                }
+
+                &:not(hover) {
+                    transform: translateY(0px);
+                    transition: transform .4s ease-in-out;
+                }
+            }
+        }
 
         .footer-top {
             display: flex;
             padding-bottom: 20px;
 
-            .blocks+.blocks {
-                margin-left: 44px;
+            @media (max-width: $screen-lg) {
+                flex-direction: column;
+            }
+
+            @media (min-width: $screen-lg) {
+                .blocks+.blocks {
+                    margin-left: 44px;
+                }
             }
 
             .blocks {
@@ -781,55 +1198,50 @@ a {
                 justify-content: space-between;
                 width: 33.33%;
 
+                @media (max-width: $screen-lg) {
+                    width: 100%;
+                    height: 100%;
+                }
+
                 .block {
 
                     h3 {
                         @include h3;
                         margin: 19px 0 0;
+
+                        @media (max-width: $screen-lg) {
+                            @include h3-lg;
+                        }
                     }
 
                     p {
                         margin: 0 0 19px;
+
+                        @media (max-width: $screen-lg) {
+                            font-size: 17px;
+                            line-height: 23px;
+                            margin: 0 0 0 0;
+                        }
                     }
 
                     ul {
                         margin: 0 0 19px;
                         list-style: none;
                         padding-left: 0;
+
+                        @media (max-width: $screen-lg) {
+                            @include h3-lg;
+                            margin: 0 0 0 0;
+                        }
                     }
 
                     a {
                         color: $color-white;
 
-                        &:hover {
-                            color: $color-dark-grey;
-                            transition: color .4s ease-in-out;
+                        @media (max-width: $screen-lg) {
+                            @include h3-lg;
+                            margin: 0 0 0 0;
                         }
-
-                        &:not(hover) {
-                            color: $color-white;
-                            transition: color .4s ease-in-out;
-                        }
-                    }
-                }
-            }
-
-            .blocks1 {
-                width: 33.33%;
-                margin-right: 44px;
-
-                .block {
-                    h3 {
-                        @include h3;
-                        margin: 19px 0 0;
-                    }
-
-                    p {
-                        margin: 0 0 19px;
-                    }
-
-                    a {
-                        color: $color-white;
 
                         &:hover {
                             color: $color-dark-grey;
@@ -849,9 +1261,17 @@ a {
             display: flex;
             justify-content: space-between;
 
+            @media (max-width: $screen-md) {
+                flex-direction: column;
+            }
+
             .block {
                 display: flex;
                 padding: 18px 0;
+
+                @media (max-width: $screen-lg) {
+                    flex-direction: column;
+                }
             }
 
             a {
@@ -868,9 +1288,14 @@ a {
                 }
             }
 
-            a+a {
-                padding-left: 44px;
+            @media (min-width: $screen-lg) {
+                a+a {
+                    padding-left: 44px;
+                }
+
+                ;
             }
+
 
             select {
                 margin-left: 20px;
@@ -882,6 +1307,10 @@ a {
                 height: 40px;
                 color: $color-white;
                 background-color: $color-black;
+
+                @media (max-width: $screen-md) {
+                    align-self: flex-end;
+                }
 
                 &:hover {
                     background-color: $color-dark-grey;

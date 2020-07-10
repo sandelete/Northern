@@ -14,17 +14,19 @@
 
 <body>
 
-    <div class="section-outer section-header">
-        <div class="section-inner">
+    <header>
+        <div class="section-inner-header">
             <ul class="nav">
 
                 <li class="nav-left">
                     <a href="#">
-                        <img src="img/burger.svg" alt='' />
+                        <img class="icon-black" src="img/burger.svg" alt='' />
+                        <img class="icon-white" src="img/burge-w.svg" alt='' />
                         <span>Menu</span>
                     </a>
                     <a href="#">
-                        <img src="img/search.svg" alt='' />
+                        <img class="icon-black" src="img/search.svg" alt='' />
+                        <img class="icon-white" src="img/search-w.svg" alt='' />
                         <span>Search</span></a>
                 </li>
                 <li class="logo">
@@ -32,7 +34,8 @@
                 </li>
                 <li class="nav-right">
                     <a href="#">
-                        <img src="img/shop.svg" alt='' />
+                        <img class="icon-black" src="img/shop.svg" alt='' />
+                        <img class="icon-white" src="img/shop-w.svg" alt='' />
                         <span>0</span>
                     </a>
                     <select class="country_to_state country_select" data-country="WR">
@@ -44,6 +47,10 @@
                 </li>
             </ul>
 
+            <div class="logo-main">
+                <img src="img/logo.svg" alt='' />
+            </div>
+
             <ul class="category-nav">
                 <li class="ssd"><a href="">Furniture</a></li>
                 <li class="ssd"><a href="">Lighting</a></li>
@@ -51,10 +58,10 @@
             </ul>
 
         </div>
-    </div>
+    </header>
 
 
-    <div class="section-outer section-swiper">
+    <div class="section-swiper">
         <div class="section-inner">
             <div class="swiper-container">
 
@@ -118,9 +125,7 @@
         </div>
     </div>
 
-
-
-    <div class="section-outer section-news">
+    <div class="section-news">
         <div class="section-inner">
             <div class="item-wrapper">
 
@@ -162,8 +167,7 @@
         </div>
     </div>
 
-
-    <div class="section-outer section-promo">
+    <div class="section-promo">
         <div class="section-inner">
             <div class="wrapper">
 
@@ -179,8 +183,7 @@
         </div>
     </div>
 
-
-    <div class="section-outer section-featured">
+    <div class="section-featured">
         <div class="section-inner">
             <div class="item-wrapper">
 
@@ -218,7 +221,7 @@
                     </div>
                 </div>
 
-                <div class="item">
+                <div class="item  hide">
                     <div class="image">
                         <img src="/img/designers.jpg" alt="">
                         <div class="hover-text">
@@ -239,7 +242,7 @@
         </div>
     </div>
 
-    <div class="section-outer section-letter">
+    <div class="section-letter">
         <div class="section-inner">
             <div class="letter-wrapper">
 
@@ -256,7 +259,7 @@
         </div>
     </div>
 
-    <div class="section-outer section-featured">
+    <div class="section-featured">
         <div class="section-inner">
             <div class="item-wrapper">
 
@@ -294,7 +297,7 @@
                     </div>
                 </div>
 
-                <div class="item">
+                <div class="item  hide">
                     <div class="image">
                         <img src="/img/product3.jpg" alt="">
                         <div class="hover-text">
@@ -315,7 +318,7 @@
         </div>
     </div>
 
-    <div class="section-outer section-instagram">
+    <div class="section-instagram">
         <div class="section-inner">
             <div class="wrapper">
 
@@ -337,13 +340,20 @@
     </div>
 
 
-    <div class="section-outer section-footer">
+    <footer>
         <div class="section-inner">
             <div class="wrapper">
 
+                <div class="button-up">
+                    <div class="wrapper-b">
+                        <span>Up</span>
+                        <img src="/img/arrow.svg" alt="">
+                    </div>
+                </div>
+
                 <div class="footer-top">
 
-                    <div class="blocks1">
+                    <div class="blocks">
                         <div class="block">
                             <h3>Contact</h3>
                             <p>
@@ -427,7 +437,7 @@
 
             </div>
         </div>
-    </div>
+    </footer>
 
 
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
